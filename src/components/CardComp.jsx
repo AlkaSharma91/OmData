@@ -31,7 +31,7 @@ useEffect(() => {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log("items are",items)
+   // console.log("items are",items)
     const data=JSON.stringify(items);
     axios.post("http://localhost:5000/api/cart/add",data,config).then((response)=>{
         console.log(response.data.cart.items)

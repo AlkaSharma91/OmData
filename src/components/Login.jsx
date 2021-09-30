@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import { socket } from '../App';
 import { saveCart } from '../redux/actions/cartAction';
 import { login, profile } from '../redux/actions/userAction';
 
@@ -16,7 +17,6 @@ function Login() {
   useEffect(() => {
       if(isLogin){
           console.log("login push called")
-        
           history.push('/');
       }
     

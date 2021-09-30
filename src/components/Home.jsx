@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { socket } from "../App";
 import { saveCart } from "../redux/actions/cartAction";
 import { profile } from "../redux/actions/userAction";
 import EditForm from "./EditForm";
@@ -58,6 +59,7 @@ function Home() {
     console.log("hello");
     setUserInfo(state?.userProfile?.userInfo);
     console.log(state.userProfile)
+    socket.emit('storeClientInfo', JSON.stringify({"customId":state?.userProfile?.userInfo}));
     history.push('/products');
     }
       
